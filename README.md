@@ -5,3 +5,5 @@ However there are two issues that should be solved:
 1. The imported texture (rounded rectangle) has a grayish blend on its borders where its alpha goes to 0, even though at Import the `Fix Alpha Border` was on.
 2. Rotated and downscaled textures do not apply filtering at all, so the image looks pixelated.
 
+![A screenshot](https://raw.githubusercontent.com/sszigeti/godot3.1.1-viewport-texture-study/master/screenshot.png)
+
