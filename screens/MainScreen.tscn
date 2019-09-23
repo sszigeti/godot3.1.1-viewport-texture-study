@@ -1,0 +1,121 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://screens/MainScreen.gd" type="Script" id=1]
+[ext_resource path="res://reference-bg.png" type="Texture" id=2]
+[ext_resource path="res://CompositeTexture/CompositeTexture.tscn" type="PackedScene" id=3]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/Roboto/Roboto-Black.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 21
+font_data = SubResource( 1 )
+
+[node name="MainRoot" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="ToggleFullscreenButton" type="Button" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 125.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 2 )
+text = "Toggle fullscreen"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 122.434
+margin_top = 129.236
+margin_right = 222.434
+margin_bottom = 229.236
+rect_min_size = Vector2( 100, 100 )
+color = Color( 0.607843, 0.694118, 0.662745, 1 )
+
+[node name="CT1" parent="." instance=ExtResource( 3 )]
+margin_left = 133.317
+margin_top = 151.002
+margin_right = 197.317
+margin_bottom = 215.002
+rect_min_size = Vector2( 64, 64 )
+rect_rotation = -21.82
+rect_pivot_offset = Vector2( 32, 32 )
+bg_color = Color( 0.72549, 0.290196, 0.290196, 1 )
+
+[node name="CT2" parent="." instance=ExtResource( 3 )]
+margin_left = 131.956
+margin_top = 216.299
+margin_right = 259.956
+margin_bottom = 344.299
+bg_color = Color( 0.894118, 0.756863, 0.756863, 1 )
+
+[node name="CT3" parent="." instance=ExtResource( 3 )]
+margin_left = 291.12
+margin_top = 137.398
+margin_right = 419.12
+margin_bottom = 265.398
+rect_min_size = Vector2( 256, 256 )
+rect_rotation = 43.78
+rect_pivot_offset = Vector2( 128, 128 )
+bg_color = Color( 0.478431, 0.615686, 0.839216, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Issue1" type="ColorRect" parent="CanvasLayer"]
+margin_left = 16.0
+margin_top = 369.0
+margin_right = 216.0
+margin_bottom = 422.0
+color = Color( 0.168627, 0.054902, 0.054902, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Issue1"]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Issue1/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 180.0
+margin_bottom = 52.0
+text = "Issue 1: how to fix alpha for
+this gray(ish) border
+on the rounded rectangles?"
+
+[node name="Issue2" type="ColorRect" parent="CanvasLayer"]
+margin_left = 16.0
+margin_top = 430.0
+margin_right = 216.0
+margin_bottom = 483.0
+color = Color( 0.168627, 0.054902, 0.054902, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Issue2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Issue2/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 196.0
+margin_bottom = 52.0
+text = "Issue 2: how to apply filter
+or antialiasing when textures
+are downscaled or rotated?"
+[connection signal="pressed" from="ToggleFullscreenButton" to="." method="_on_ToggleFullscreenButton_pressed"]
