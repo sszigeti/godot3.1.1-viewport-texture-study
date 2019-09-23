@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://CompositeTexture/CompositeTexture.gd" type="Script" id=1]
 [ext_resource path="res://rect-bg.png" type="Texture" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=5]
+blend_mode = 4
 
 [sub_resource type="DynamicFontData" id=1]
 antialiased = false
@@ -11,7 +14,7 @@ font_path = "res://Fonts/Roboto/Roboto-Black.ttf"
 size = 400
 font_data = SubResource( 1 )
 
-[sub_resource type="ViewportTexture" id=3]
+[sub_resource type="ViewportTexture" id=4]
 flags = 4
 viewport_path = NodePath("Viewport")
 
@@ -31,6 +34,7 @@ render_target_v_flip = true
 gui_disable_input = true
 
 [node name="Bg" type="TextureRect" parent="Viewport"]
+material = SubResource( 5 )
 margin_right = 512.0
 margin_bottom = 512.0
 texture = ExtResource( 2 )
@@ -58,5 +62,5 @@ margin_bottom = 550.0
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = SubResource( 3 )
+texture = SubResource( 4 )
 expand = true
